@@ -16,3 +16,10 @@ def identify(payload: IdentifyRequest, db: Session = Depends(get_db)):
 
     result = identify_contact(db, payload.email, payload.phoneNumber)
     return result
+
+@app.get("/")
+def root():
+    return {
+        "service": "Bitespeed Identity Reconciliation API",
+        "status": "running"
+    }
